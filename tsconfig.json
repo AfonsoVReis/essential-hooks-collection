@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES6"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "strict": true,
+    "target": "ES6",
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  }
+}
