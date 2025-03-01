@@ -1,6 +1,6 @@
 {
   "name": "essential-hooks-collection",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A collection of essential React hooks",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
