@@ -52,11 +52,14 @@
   "sideEffects": false,
   "husky": {
     "hooks": {
+      "commit-msg": "npx commitlint --edit $1",
       "pre-commit": "npx lint-staged",
       "pre-push": "npm test"
     }
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.14",
@@ -66,6 +69,7 @@
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "husky": "^8.0.0",

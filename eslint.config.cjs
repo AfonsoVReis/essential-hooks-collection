@@ -7,6 +7,7 @@ const importPlugin = require("eslint-plugin-import");
 const prettier = require("eslint-config-prettier");
 const browserGlobals = require("globals").browser;
 const nodeGlobals = require("globals").node;
+const preferArrow = require("eslint-plugin-prefer-arrow");
 
 module.exports = [
   js.configs.recommended,
@@ -27,6 +28,7 @@ module.exports = [
       react,
       "react-hooks": reactHooks,
       import: importPlugin,
+      "prefer-arrow": preferArrow,
     },
     rules: {
       "no-undef": "off",
@@ -34,6 +36,14 @@ module.exports = [
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_" },
+      ],
+      "prefer-arrow/prefer-arrow-functions": [
+        "error",
+        {
+          disallowPrototype: true,
+          singleReturnOnly: false,
+          classPropertiesAllowed: false,
+        },
       ],
       "import/order": [
         "error",

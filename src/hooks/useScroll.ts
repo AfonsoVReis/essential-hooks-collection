@@ -1,17 +1,30 @@
 import { useState, useEffect } from "react";
 
 /**
- * A React hook that tracks the scroll position of the window.
+ * A React hook that tracks the current scroll position of the window.
  *
- * @returns An object `{ x, y }` representing the scroll position.
+ * This hook listens for the window's scroll event and returns an object with the current
+ * horizontal (x) and vertical (y) scroll positions. It updates automatically whenever the user scrolls.
+ *
+ * @returns {{ x: number, y: number }} An object containing the current scroll positions along the x and y axes.
  *
  * @example
- * ```tsx
- * const { x, y } = useScroll();
- * console.log(x, y);
- * ```
+ * import { useScroll } from "essential-hooks-collection";
+ *
+ * const MyComponent = () => {
+ *   const { x, y } = useScroll();
+ *
+ *   return (
+ *     <div>
+ *       <p>Scroll X: {x}</p>
+ *       <p>Scroll Y: {y}</p>
+ *     </div>
+ *   );
+ * };
+ *
+ * export default MyComponent;
  */
-export function useScroll() {
+export const useScroll = () => {
   const [scroll, setScroll] = useState({
     x: typeof window !== "undefined" ? window.scrollX : 0,
     y: typeof window !== "undefined" ? window.scrollY : 0,
@@ -30,8 +43,10 @@ export function useScroll() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return scroll;
-}
+};
